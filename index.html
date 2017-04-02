@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <style id="blurrer"></style>
+</head>
+
+<body>
+    <div class="fixed">
+        <h1>Rubik's Robot</h1>
+        <p id="disp">
+
+        </p>
+    </div>
+    <!--<script>
+    // You can also require other files to run in this process
+    require('./script.js')
+</script>-->
+    <script>
+        var preload_html = document.body.innerHTML;
+        document.body.innerHTML = '<h1 style="background-color:#3a3a3a; position:fixed;top:0;bottom:0;left:0;right:0;margin:0;">Loading</h1>';
+    </script>
+    <script src="./blur.js"></script>
+    <script src="./cube.js"></script>
+    <script src="./solve.js"></script>
+    <script>
+        document.body.innerHTML = preload_html;
+    </script>
+    <script src="./my_solver.js"></script>
+    <!--<script>
+        setTimeout(require('./my_solver.js'), 500);
+    </script>-->
+
+</body>
+
+
+</html>

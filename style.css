@@ -1,0 +1,68 @@
+.fixed {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.loading {
+    display: none;
+}
+.loaded {
+    display: block;
+}
+
+
+
+body {
+    height: 2000px;
+    /*background-image: url('./background.jpeg');
+            background-attachment: fixed;
+            background-position: center center;
+            background-repeat: no-repeat;*/
+    background-color: #222;
+    color: white;
+    font-family: 'mosk';
+    text-align: center;
+    margin: 0;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: url(./background.jpeg);
+    background-size: cover;
+    z-index: -1;
+    /* Keep the background behind the content */
+    /* don't forget to use the prefixes you need */
+    /*-webkit-transform: scale(1.1);*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#background {
+    background-image: url('./background.jpeg');
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -10000000;
+}
+
+#mySVG {
+    position: fixed;
+    top: 15%;
+    width: 400px;
+    height: 210px;
+    margin-left: -50px;
+}
