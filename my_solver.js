@@ -11,9 +11,34 @@ cube.move("U F R2 B' D2 L'");
 cube.randomize();
 setTimeout(displayCube(cube),500);
 var solveAlg = cube.solve() /* => "D2 B' R' B L' B ..." */
-console.log(solveAlg);
-cube.move(solveAlg) // These typically take from 0.01s to 0.4s, rarely up to 2s 
+doAlg(solveAlg);
 displayCube(cube);
+
+
+
+function doAlg(alg) {
+    cube.move(alg); // These typically take from 0.01s to 0.4s, rarely up to 2s 
+    console.log('executing alg:\n' + alg);
+    var moves = alg.split(' ');
+    for (var i = 0; i < moves.length; i++) {
+        var move = moves[i].split('');
+        if(move.length == 1) {
+            turnMotor(move[0],true);
+        }
+        else if (move[1] == '\'') {
+            turnMotor(move[0],false);
+        }
+        else if (move[1] == '2') {
+            turnMotor(move[0],true);
+            turnMotor(move[0],true);
+        }
+    }
+}
+
+function turnMotor(face,direction /*true for clockwise, false for anti-clockwise*/) {
+    var d = direction?'clockwise':'anti-clockwise';
+    console.log('moving ' + face + ' ' + d + '...');
+}
 
 
 function displayCube(cube_in, id_in) {
